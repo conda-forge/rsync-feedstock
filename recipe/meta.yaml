@@ -23,11 +23,7 @@ requirements:
     - {{ compiler('c') }}
   host:
     - zlib
-    - popt 1.16
-  run:
-    - zlib
-    - popt 1.16
-    - libiconv
+    - popt
 
 test:
   commands:
