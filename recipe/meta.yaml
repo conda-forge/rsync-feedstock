@@ -1,5 +1,5 @@
 {% set name = "rsync" %}
-{% set version = "3.1.3" %}
+{% set version = "3.2.0" %}
 {% set config_hash = "04b07fc6d9ad4fd2be7434c9ce8b03341e54ca02" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://www.samba.org/ftp/{{ name }}/src/{{ name }}-{{ version }}.tar.gz
-    sha256: 55cc554efec5fdaad70de921cd5a5eeb6c29a95524c715f3bbf849235b0800c0
+    sha256: 90127fdfb1a0c5fa655f2577e5495a40907903ac98f346f225f867141424fa25
     patches:
       - 0001-removed-devices-test.patch
   - fn: config-updated.guess
@@ -19,8 +19,8 @@ source:
     sha256: 729711e8aa3228db4a3adea9ca5d60de184969a1537ac874477ce5676bee8464
 
 build:
-  number: 1002
-  skip: True  # [win]
+  number: 0
+  skip: true  # [win]
 
 requirements:
   build:
@@ -45,7 +45,7 @@ about:
   license: GPL-3.0-only
   license_family: GPL
   license_file: COPYING
-  summary: 'Tool for fast incremental file transfer'
+  summary: Tool for fast incremental file transfer
 
   description: |
     rsync is an open source utility that provides fast incremental file transfer.
