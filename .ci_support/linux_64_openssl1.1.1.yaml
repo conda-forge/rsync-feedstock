@@ -11,14 +11,12 @@ channel_targets:
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 libiconv:
-- '1.16'
+- '1'
 lz4_c:
 - 1.9.3
 openssl:
 - 1.1.1
 pin_run_as_build:
-  libiconv:
-    max_pin: x.x
   zlib:
     max_pin: x.x
 target_platform:
