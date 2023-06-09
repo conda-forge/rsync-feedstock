@@ -23,11 +23,13 @@ requirements:
   host:
     - libiconv
     - lz4-c
-    - openssl
+    - openssl {{ openssl }}
     - popt 1.16
     - xxhash
     - zlib
     - zstd
+  run:
+    - openssl 3.*
 
 test:
   commands:
