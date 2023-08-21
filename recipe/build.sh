@@ -3,7 +3,9 @@
 set -e -o pipefail
 
 # Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/gnuconfig/config.* .
+if [[ "$target_platform" != "win-64" ]]; then
+  cp $BUILD_PREFIX/share/gnuconfig/config.* .
+fi
 
 if [[ "${target_platform}" == "osx-arm64" ]]; then
     EXTRA_CONFIGURE_ARGS="--disable-simd"
