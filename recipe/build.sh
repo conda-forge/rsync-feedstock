@@ -9,6 +9,7 @@ if [[ "${target_platform}" == "osx-arm64" ]]; then
     EXTRA_CONFIGURE_ARGS="--disable-simd"
 fi
 ./configure --prefix=$PREFIX --without-included-zlib --without-included-popt ${EXTRA_CONFIGURE_ARGS:-}
+[[ "$target_platform" == "win-64" ]] && patch_libtool
 make -j${CPU_COUNT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
     make check
