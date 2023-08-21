@@ -24,7 +24,7 @@ requirements:
     - libiconv
     - lz4-c
     - openssl
-    - popt 1.16
+    - popt 1.16  # [not win]
     - xxhash
     - zlib
     - zstd
