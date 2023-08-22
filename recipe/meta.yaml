@@ -11,7 +11,6 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
 
 requirements:
   build:
@@ -19,12 +18,13 @@ requirements:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}  # [osx and arm64]
+    - autotools_clang_conda  # [win]
     - make
   host:
     - libiconv
     - lz4-c
     - openssl
-    - popt 1.16
+    - popt 1.16  # [not win]
     - xxhash
     - zlib
     - zstd
