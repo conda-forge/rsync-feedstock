@@ -8,7 +8,7 @@ if [[ "$target_platform" != "win-64" ]]; then
 fi
 
 if [[ "${target_platform}" == "osx-arm64" ]]; then
-    EXTRA_CONFIGURE_ARGS="--disable-simd"
+    EXTRA_CONFIGURE_ARGS="--disable-simd --build=x86_64-pc-cygwin"
 fi
 ./configure --prefix=$PREFIX --without-included-zlib --without-included-popt ${EXTRA_CONFIGURE_ARGS:-}
 [[ "$target_platform" == "win-64" ]] && patch_libtool
