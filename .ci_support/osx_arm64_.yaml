@@ -28,6 +28,8 @@ openssl:
 - '3'
 target_platform:
 - osx-arm64
+xxhash:
+- 0.8.3
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
