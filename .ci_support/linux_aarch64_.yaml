@@ -1,13 +1,11 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '13'
+- '14'
 c_stdlib:
 - sysroot
 c_stdlib_version:
 - '2.17'
-cdt_name:
-- conda
 channel_sources:
 - conda-forge
 channel_targets:
@@ -19,7 +17,7 @@ libiconv:
 lz4_c:
 - '1.10'
 openssl:
-- '3'
+- '3.5'
 target_platform:
 - linux-aarch64
 xxhash:
