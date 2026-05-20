@@ -19,6 +19,7 @@ build:
 requirements:
   build:
     - perl *
+    - python >=3.10
     - if: unix
       then: gnuconfig
     - ${{ compiler('c') }}
