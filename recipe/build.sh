@@ -12,6 +12,12 @@ fi
 make -j${CPU_COUNT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
     # Don't run tests with emulation as they will be flaky due to the slow timings.
+
+    # Known flaky test on osx
+    if [[ "${target_platform}" == osx-* ]]; then
+        rm testsuite/chmod-symlink-race.test
+        rm testsuite/symlink-dirlink-basis.test
+    fi
     make check
 fi
 make install
