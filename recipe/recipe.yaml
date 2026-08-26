@@ -31,7 +31,7 @@ requirements:
     - libiconv
     - lz4-c
     - openssl
-    - popt 1.16.*
+    - popt
     - xxhash
     - zlib
     - zstd
