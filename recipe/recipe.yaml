@@ -17,16 +17,12 @@ requirements:
   build:
     - ${{ stdlib('c') }}
     - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
     - make
     - autoconf
     - automake
-    - perl *
     - python >=3.10
     - commonmark
-    - if: unix
-      then: gnuconfig
-    - if: osx and arm64
-      then: ${{ compiler('cxx') }}
   host:
     - libiconv
     - libidn2
@@ -34,7 +30,6 @@ requirements:
     - openssl
     - popt
     - xxhash
-    - zlib
     - zstd
 
 tests:
