@@ -1,32 +1,29 @@
-schema_version: 1
-
 context:
-  version: "3.4.4"
+  version: "3.5.1"
 
 package:
   name: rsync
   version: ${{ version }}
 
 source:
-  - url: https://www.samba.org/ftp/rsync/src/rsync-${{ version }}.tar.gz
-    sha256: bd88cf82fa653da32314fb229136407c5c90f80d1758d8f4b091767877d8fa96
+  url: https://github.com/RsyncProject/rsync/archive/v${{ version }}.tar.gz
+  sha256: 2799008013c605cc9e83e70c1d18de6cf99e5fb4556b63f36123337d92942890
 
 build:
-  number: 1
+  number: 0
   skip: win
-  script: build.sh
 
 requirements:
   build:
+    - ${{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - make
     - perl *
     - python >=3.10
     - if: unix
       then: gnuconfig
-    - ${{ compiler('c') }}
-    - ${{ stdlib("c") }}
     - if: osx and arm64
       then: ${{ compiler('cxx') }}
-    - make
   host:
     - libiconv
     - lz4-c
@@ -37,18 +34,18 @@ requirements:
     - zstd
 
 tests:
+  - script:
+      - rsync --version
+      - rsync --help
   - package_contents:
       strict: true
       bin:
         - rsync
         - rsync-ssl
       files:
-        - share/man/man1/rsync-ssl.1
         - share/man/man1/rsync.1
+        - share/man/man1/rsync-ssl.1
         - share/man/man5/rsyncd.conf.5
-
-  - script:
-      - rsync --help
 
 about:
   license: GPL-3.0-only
@@ -57,7 +54,7 @@ about:
   description: |
     rsync is an open source utility that provides fast incremental file transfer.
   homepage: https://rsync.samba.org/
-  repository: https://git.samba.org/?p=rsync.git
+  repository: https://github.com/RsyncProject/rsync
   documentation: https://rsync.samba.org/documentation.html
 
 extra:
@@ -65,3 +62,4 @@ extra:
     - notestaff
     - sodre
     - xhochy
+    - XhstormR
