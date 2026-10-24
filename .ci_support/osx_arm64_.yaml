@@ -18,6 +18,8 @@ cxx_compiler_version:
 - '21'
 libiconv:
 - '1'
+libidn2:
+- '2'
 lz4_c:
 - '1.10'
 macos_machine:
